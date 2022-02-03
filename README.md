@@ -41,5 +41,5 @@ npm start
 ```bash
 npm run apidoc or npm run autoBuildDoc
 ```
-打包后查看api文档：http://localhost:8888/doc
+打包后查看api文档：http://localhost:8888/docs
 
