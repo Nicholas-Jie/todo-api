@@ -21,8 +21,17 @@ const taskModel = {
         const { limit, page, title, status } = params
 
         const offset = limit * (page - 1)
-        const sql = `select *
-                     from tasks
+        const sql = `select t.id
+                            ,t.title
+                            ,t.content
+                            ,t.status
+                            ,t.deadline
+                            ,t.user_id
+                            ,u.username as creator
+                            ,t.create_time
+                            ,t.update_time
+                     from tasks t
+                     inner join sys_user u on t.user_id = u.id
                      where title like '%${title}%'
                            ${ (status || status === '0') ? `and status='${status}'` : '' }
                      order by update_time
