@@ -1,17 +1,18 @@
----------------------------------------------------------
+-- -------------------------------------------------------
 -- create database todo_db and set charset utf8
----------------------------------------------------------
+-- -------------------------------------------------------
 DROP DATABASE IF EXISTS todo_db;
 CREATE DATABASE IF NOT EXISTS todo_db CHARACTER SET utf8;
 
----------------------------------------------------------
+-- -------------------------------------------------------
 -- use database
----------------------------------------------------------
+-- -------------------------------------------------------
 USE todo_db;
 
----------------------------------------------------------
+-- -------------------------------------------------------
 -- create sys_user table
----------------------------------------------------------
+-- -------------------------------------------------------
+DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一标识',
   `username` varchar(50) NOT NULL DEFAULT '' COMMENT '用户账号',
@@ -23,12 +24,13 @@ CREATE TABLE `sys_user` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3 COMMENT='用户表';
 
 
----------------------------------------------------------
+-- -------------------------------------------------------
 -- create tasks table
----------------------------------------------------------
+-- -------------------------------------------------------
+DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一标识',
   `title` varchar(256) DEFAULT '' COMMENT '清单标题',
@@ -39,4 +41,4 @@ CREATE TABLE `tasks` (
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
   `update_time` datetime DEFAULT NULL COMMENT '更新日期',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COMMENT='任务清单表'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3 COMMENT='任务清单表'
